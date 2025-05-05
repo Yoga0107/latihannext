@@ -27,18 +27,14 @@ const menuList = [
 
 export default function AyangPage() {
   const [step, setStep] = useState(1);
-  const [showHearts, setShowHearts] = useState(false);
 
   const handleClick = (message: string) => {
     const encoded = encodeURIComponent(message);
-    const waUrl = `https://wa.me/?text=${encoded}`;
+    const waUrl = `https://wa.me/6281299090466?text=${encoded}`;
     window.open(waUrl, "_blank");
   };
 
-  const handleHeartClick = () => {
-    setShowHearts(true);
-    setTimeout(() => setShowHearts(false), 2000);
-  };
+
 
   return (
     <main className="relative min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-pink-100 via-pink-200 to-rose-100 p-4 font-sans overflow-hidden">
@@ -83,29 +79,6 @@ export default function AyangPage() {
         </>
       )}
 
-      {/* <button
-        onClick={handleHeartClick}
-        className="fixed bottom-6 right-6 z-50 bg-pink-600 text-white px-4 py-2 rounded-full shadow-lg hover:scale-110 transition-all"
-      >
-        SAYANG AYANG!! 💋
-      </button> */}
-
-      {showHearts && (
-        <div className="absolute inset-0 pointer-events-none overflow-hidden z-40">
-          {[...Array(20)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute text-pink-400 animate-floating text-xl"
-              style={{
-                left: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 2}s`,
-              }}
-            >
-              💖
-            </div>
-          ))}
-        </div>
-      )}
     </main>
   );
 }
